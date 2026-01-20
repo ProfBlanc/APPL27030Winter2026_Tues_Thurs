@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Card</title>
+<style>
+body {
+  font-family: Arial;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.card {
+  width: 260px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+.image {
+  height: 180px;
+  background: url("https://picsum.photos/400/300") center/cover;
+}
+.info {
+  padding: 20px;
+  position: relative;
+}
+.price {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="image"></div>
+  <div class="info">
+    <span class="price">$29</span>
+    <h3>Cool Product</h3>
+    <p>Minimal product card design</p>
+  </div>
+</div>
+
+</body>
+</html>

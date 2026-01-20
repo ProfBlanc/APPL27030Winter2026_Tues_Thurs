@@ -1,0 +1,29 @@
+/*
+    CSS => Cascading Style Sheet
+
+    Goal: make the web page stylish
+
+    target an element or many elements
+        element = tag
+    
+    apply one or many stylistic properties to target element(s)
+
+
+    How to target
+        by element
+        by id 
+        by class
+        combo of element, id, class
+*/
+
+p{
+    background-color: red;
+    color: white;
+}
+header{
+    height: 50px;
+    text-align: center;
+    background-color: black;
+    color: white;   
+    margin-bottom: 20px;
+}

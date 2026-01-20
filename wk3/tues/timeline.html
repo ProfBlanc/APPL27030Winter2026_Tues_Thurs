@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Timeline</title>
+<style>
+body {
+  font-family: sans-serif;
+  background: #f3f4f6;
+  padding: 40px;
+}
+.timeline {
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #4f46e5;
+}
+.event {
+  width: 45%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  margin: 20px 0;
+}
+.event:nth-child(odd) {
+  margin-left: 0;
+}
+.event:nth-child(even) {
+  margin-left: 55%;
+}
+</style>
+</head>
+<body>
+
+<div class="timeline">
+  <div class="event">Started Project</div>
+  <div class="event">First Release</div>
+  <div class="event">Major Update</div>
+</div>
+
+</body>
+</html>
