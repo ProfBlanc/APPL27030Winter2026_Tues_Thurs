@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+    <style>
+        header{
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .expensive, .bargin{
+            background: beige;
+        }
+        #products{
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            gap: 20px;
+
+        }
+        .products:hover{
+            background-color: blueviolet;
+            color: white;
+        }
+        .products{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+<header>
+    <h1>E-Commerce Site</h1>
+</header>
+<section id="products">
+
+    <div id="product1" class="products expensive">
+        <h2>Shoes</h2>
+        <h3>Super comfortable shoes</h3>
+        <h4>$149.99</h4>
+        <img src="https://picsum.photos/id/10/400/300" alt="Image of shoes" >
+    </div>
+    <div id="product2" class="products bargin">
+        <h2>Socks</h2>
+        <h3>ultra warm socks</h3>
+        <h4>$19.99</h4>
+        <img src="https://picsum.photos/id/210/400/300" alt="Image of socks" >
+    </div>
+    <div id="product3" class="products expensive">
+        <h2>Pants</h2>
+        <h3>Stylish pants</h3>
+        <h4>$79.99</h4>
+        <img src="https://picsum.photos/id/320/400/300" alt="Image of Pants" >
+    </div>
+
+
+</section>
+
+
+</body>
+</html>
