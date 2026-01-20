@@ -1,0 +1,8 @@
+Create a e-commerce homepage
+
+display 3 products that have a name, description, image & price.
+allow user to click on either name or image to navigate to a products.html page. 
+products.html will be blank.
+Apply at least 10 style properties to various elements on page. 
+Add at least 1 ID and 1 class to two unique elements (tags)
+Search for images online. Be as creative as your energy permits.
