@@ -1,0 +1,313 @@
+/* =====================
+   RESET & VARIABLES
+   ===================== */
+:root {
+  --primary: #4f46e5;
+  --secondary: #6366f1;
+  --accent: #22c55e;
+  --bg: #f9fafb;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+}
+
+/* =====================
+   GLOBAL ELEMENTS
+   ===================== */
+h1, h2, h3 {
+  line-height: 1.25;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0.5rem 0 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* =====================
+   HEADER & NAV
+   ===================== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 2rem;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.tagline {
+  opacity: 0.9;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.main-nav a {
+  color: white;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+}
+
+/* =====================
+   MAIN LAYOUT
+   ===================== */
+main {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* =====================
+   TEXT SECTION
+   ===================== */
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+pre {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* =====================
+   LISTS
+   ===================== */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* =====================
+   BUTTONS & LINKS
+   ===================== */
+button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: var(--border);
+}
+
+button.primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+button.primary:hover {
+  background: var(--secondary);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link-group {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.special-link {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* =====================
+   IMAGES
+   ===================== */
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =====================
+   CARDS (FLEXBOX)
+   ===================== */
+.card-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 250px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   TABLE
+   ===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+thead {
+  background: var(--border);
+}
+
+/* =====================
+   FORM
+   ===================== */
+form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.footer-links a {
+  color: #9ca3af;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-container {
+    flex-direction: column;
+  }
+}
