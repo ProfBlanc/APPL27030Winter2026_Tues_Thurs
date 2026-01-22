@@ -1,0 +1,47 @@
+<div class='main-nav'>
+	<ul>
+		<li>
+			<ul>
+			  <li></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+
+
+img[alt="hello"]
+
+
+_________________
+did you notice that some targets/selectors 
+are more general than others? And some are super
+specific?
+
+<a></a>
+<a id="a1"></a>
+<a class="c1"</a>
+
+a{}
+#a1{}
+.c1{}
+
+
+_____________________________
+Rank the following selecting from most to least
+specific
+- decendant selecting
+- sibling selecting
+- child selecting
+- attribute selecting
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Page</title>
+</head>
+<body>
+
+    
+<script>
+
+    let name = "Your name";
+    let age = 900;
+    let havingFun = true;
+    let temperature = -15.5;
+
+    document.write(name + "<br/>"); //concatenation
+    document.write(age, "<br/>", havingFun);
+    //print(age, "<br/>", havingFun)
+    document.write("<hr>");
+    document.write(20 + "20", "<br/>");
+
+    age = "50"; 
+
+    if(age < 100 && 1 < 0)
+        document.write("Age is less than 100");
+    else if(age < 150){ //|| to compare either or for boolean expressions
+            document.write("Age between 100 and 149");
+    }
+    else{
+        document.write("Age 150 or above")
+    }
+
+    document.write("<br/>");
+    age = 50;
+    if(age == 50){
+        document.write("Age is 50 in value")
+    }
+    if(age === 50){
+        document.write("Age is 50 in value and data type")
+    }
+
+</script>
+</body>
+</html>
