@@ -41,7 +41,16 @@ specific
 
 
 
+______________________________________
 
+sudo a2enmod headers
+sudo systemctl restart apache
+
+open default-ssl config file
+
+<IfModoule mod_headers.c>
+Header always set Content-Security-Policy "default-src 'self';"
+</IfModoule>
 
 
 
