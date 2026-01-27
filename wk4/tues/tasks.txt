@@ -1,0 +1,9 @@
+Task 1
+Ask the user for 2 numbers
+    Starting Number
+    Ending Number
+Using a FOR LOOP,
+count from Starting Number to Ending Number,
+incrementing by 1.
+Bonus: check that starting number is smaller than
+ending number. If not, alert error message
