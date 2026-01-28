@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Go to page</h3>
+  <input id="url" />
+  <button onclick="go()">Go</button>
+
+  <script>
+    function go() {
+      const url = document.getElementById("url").value;
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol === "https:") {
+          window.location.href = parsed.href;
+        } else {
+          alert("Only HTTPS URLs allowed");
+        }
+      } catch {
+        alert("Invalid URL");
+      }
+    }
+  </script>
+</body>
+</html>
+

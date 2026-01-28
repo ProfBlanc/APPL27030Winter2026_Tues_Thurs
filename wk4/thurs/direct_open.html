@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Go to page</h3>
+  <input id="url" placeholder="https://example.com" />
+  <button onclick="go()">Go</button>
+
+  <script>
+    function go() {
+      const url = document.getElementById("url").value;
+      // Vulnerable: javascript:alert(1)
+      window.location = url;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Search</h3>
+  <input id="q" />
+  <button onclick="search()">Search</button>
+  <div id="result"></div>
+
+  <script>
+    function search() {
+      const q = document.getElementById("q").value;
+      // Safe: textContent escapes HTML
+      document.getElementById("result").textContent =
+        "Results for: " + q;
+    }
+  </script>
+</body>
+</html>

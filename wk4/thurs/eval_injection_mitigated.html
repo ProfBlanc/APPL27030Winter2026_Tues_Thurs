@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Calculator</h3>
+  <input id="a" type="number" />
+  <input id="b" type="number" />
+  <button onclick="calculate()">Add</button>
+
+  <script>
+    function calculate() {
+      const a = Number(document.getElementById("a").value);
+      const b = Number(document.getElementById("b").value);
+      alert(a + b);
+    }
+  </script>
+</body>
+</html>
