@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Comprehensive Form Validation Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      border-radius: 8px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="demoForm" novalidate>
+  <h1>Form Validation Playground</h1>
+
+  <fieldset>
+    <legend>Basic Information</legend>
+
+    <label>
+      Full Name (required, min 3 chars)
+      <input type="text" id="fullName">
+      <span class="error" id="nameError"></span>
+    </label>
+
+    <label>
+      Email (valid format)
+      <input type="email" id="email">
+      <span class="error" id="emailError"></span>
+    </label>
+
+    <label>
+      Password (min 8 chars, 1 number, 1 uppercase)
+      <input type="password" id="password">
+      <span class="error" id="passwordError"></span>
+    </label>
+
+    <label>
+      Confirm Password
+      <input type="password" id="confirmPassword">
+      <span class="error" id="confirmPasswordError"></span>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Personal Details</legend>
+
+    <label>
+      Age (18–120)
+      <input type="number" id="age">
+      <span class="error" id="ageError"></span>
+    </label>
+
+    <label>
+      Date of Birth (must be in the past)
+      <input type="date" id="dob">
+      <span class="error" id="dobError"></span>
+    </label>
+
+    <label>
+      Phone Number (10 digits)
+      <input type="tel" id="phone">
+      <span class="error" id="phoneError"></span>
+    </label>
+
+    <label>
+      Website URL
+      <input type="url" id="website">
+      <span class="error" id="websiteError"></span>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Preferences</legend>
+
+    <label>
+      Gender
+      <select id="gender">
+        <option value="">-- Select --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Non-binary</option>
+        <option>Prefer not to say</option>
+      </select>
+      <span class="error" id="genderError"></span>
+    </label>
+
+    <label>
+      Interests (select at least one)
+      <input type="checkbox" name="interests" value="sports"> Sports
+      <input type="checkbox" name="interests" value="music"> Music
+      <input type="checkbox" name="interests" value="tech"> Tech
+      <span class="error" id="interestsError"></span>
+    </label>
+
+    <label>
+      Satisfaction Level
+      <input type="range" id="satisfaction" min="1" max="10">
+    </label>
+
+    <label>
+      Favorite Color
+      <input type="color" id="color">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Additional</legend>
+
+    <label>
+      Short Bio (max 200 characters)
+      <textarea id="bio" maxlength="200"></textarea>
+      <span class="error" id="bioError"></span>
+    </label>
+
+    <label>
+      Upload Resume (PDF only)
+      <input type="file" id="resume" accept=".pdf">
+      <span class="error" id="resumeError"></span>
+    </label>
+
+    <label>
+      <input type="checkbox" id="terms">
+      I accept the terms and conditions
+      <span class="error" id="termsError"></span>
+    </label>
+  </fieldset>
+
+  <button type="submit">Submit</button>
+  <p id="formResult"></p>
+</form>
+
+<script>
+  document.getElementById("demoForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let valid = true;
+
+    // Clear previous errors
+    document.querySelectorAll(".error").forEach(el => el.textContent = "");
+    document.getElementById("formResult").textContent = "";
+
+    // Name
+    const name = fullName.value.trim();
+    if (name.length < 3) {
+      nameError.textContent = "Name must be at least 3 characters.";
+      valid = false;
+    }
+
+    // Email
+    if (!email.value.includes("@")) {
+      emailError.textContent = "Invalid email address.";
+      valid = false;
+    }
+
+    // Password
+    const pwd = password.value;
+    if (!/(?=.*[A-Z])(?=.*\d).{8,}/.test(pwd)) {
+      passwordError.textContent = "Password is too weak.";
+      valid = false;
+    }
+
+    // Confirm Password
+    if (pwd !== confirmPassword.value) {
+      confirmPasswordError.textContent = "Passwords do not match.";
+      valid = false;
+    }
+
+    // Age
+    const ageValue = parseInt(age.value, 10);
+    if (isNaN(ageValue) || ageValue < 18 || ageValue > 120) {
+      ageError.textContent = "Age must be between 18 and 120.";
+      valid = false;
+    }
+
+    // Date of Birth
+    if (dob.value && new Date(dob.value) >= new Date()) {
+      dobError.textContent = "Date of birth must be in the past.";
+      valid = false;
+    }
+
+    // Phone
+    if (!/^\d{10}$/.test(phone.value)) {
+      phoneError.textContent = "Phone must be 10 digits.";
+      valid = false;
+    }
+
+    // Website
+    if (website.value && !website.value.startsWith("http")) {
+      websiteError.textContent = "Website must start with http or https.";
+      valid = false;
+    }
+
+    // Gender
+    if (!gender.value) {
+      genderError.textContent = "Please select a gender.";
+      valid = false;
+    }
+
+    // Interests
+    const interests = document.querySelectorAll("input[name='interests']:checked");
+    if (interests.length === 0) {
+      interestsError.textContent = "Select at least one interest.";
+      valid = false;
+    }
+
+    // Bio
+    if (bio.value.length > 200) {
+      bioError.textContent = "Bio is too long.";
+      valid = false;
+    }
+
+    // Resume
+    if (resume.files.length && !resume.files[0].name.endsWith(".pdf")) {
+      resumeError.textContent = "Only PDF files allowed.";
+      valid = false;
+    }
+
+    // Terms
+    if (!terms.checked) {
+      termsError.textContent = "You must accept the terms.";
+      valid = false;
+    }
+
+    if (valid) {
+      formResult.textContent = "✅ Form submitted successfully!";
+      formResult.className = "success";
+    }
+  });
+</script>
+
+</body>
+</html>
