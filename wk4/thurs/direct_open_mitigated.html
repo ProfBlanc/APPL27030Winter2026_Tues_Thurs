@@ -3,17 +3,20 @@
 <body>
   <h3>Go to page</h3>
   <input id="url" />
-  <button onclick="go()">Go</button>
+  <button >Go</button>
 
   <script>
+    document.querySelector("button").addEventListener("click", go);
     function go() {
       const url = document.getElementById("url").value;
       try {
         const parsed = new URL(url);
-        if (parsed.protocol === "https:") {
+if (parsed.protocol === "https:" && parsed.href
+                                              .toLowerCase()
+                                              .includes("sheridancollege.ca")) {
           window.location.href = parsed.href;
         } else {
-          alert("Only HTTPS URLs allowed");
+          alert("Only HTTPS & Sheridan College URLs allowed");
         }
       } catch {
         alert("Invalid URL");

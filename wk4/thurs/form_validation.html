@@ -53,7 +53,7 @@
 
     <label>
       Full Name (required, min 3 chars)
-      <input type="text" id="fullName">
+      <input type="text" name="fullName" id="fullName">
       <span class="error" id="nameError"></span>
     </label>
 
@@ -165,7 +165,8 @@
 </form>
 
 <script>
-  document.getElementById("demoForm").addEventListener("submit", function (e) {
+  document.getElementById("demoForm")
+  .addEventListener("submit", function (e) {
     e.preventDefault();
 
     let valid = true;
@@ -175,6 +176,8 @@
     document.getElementById("formResult").textContent = "";
 
     // Name
+    let fn = document.getElementById("fullName");
+    let v1 = fn.value;
     const name = fullName.value.trim();
     if (name.length < 3) {
       nameError.textContent = "Name must be at least 3 characters.";
@@ -201,7 +204,7 @@
     }
 
     // Age
-    const ageValue = parseInt(age.value, 10);
+    const ageValue = parseInt(age.value);
     if (isNaN(ageValue) || ageValue < 18 || ageValue > 120) {
       ageError.textContent = "Age must be between 18 and 120.";
       valid = false;
