@@ -1,0 +1,16 @@
+Task 1
+
+Add 4 more username-password combinations for logging in
+
+Task 2
+
+Add Delete button below dashboard display of photos that deletes selected photo
+
+Task 3
+
+Add pagination, only displaying 3 images at a time on dashboard with Previous and/or Next buttons on dashboard
+
+Task 4
+
+Allow user uploads to go to a subdirectory in uploads folder. Only display photos in users' subdirectory on dashboard. When deleting, check if photo deleted belongs to user only
+
