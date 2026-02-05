@@ -5,10 +5,25 @@ $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 
 
-$validUser = 'admin';
-$validPass = 'password123';
+// $validUser = 'admin';
+// $validPass = 'password123';
 
-if ($username === $validUser && $password === $validPass) {
+$validUsers = ["admin", "user", "ben", "mary", "john"];
+$validPasswords = ["pass1", "pass2", "pass3", "pass4", "pass5"];
+
+$isAuthenticated = false;
+
+//if ($username === $validUser && $password === $validPass) {
+
+if(in_array($username, $validUsers)){
+
+    $index = array_search($username, $validUsers);
+
+    $isAuthenticated = $password === $validPasswords[$index];
+
+}
+
+if($isAuthenticated){
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $username;
     header("Location: dashboard.php");

@@ -4,11 +4,16 @@ require 'auth_check.php';
 $images = [];
 $dir = 'uploads';
 
+if(!file_exists($dir)){
+    mkdir($dir);
+}
+
 if (is_dir($dir)) {
     $files = scandir($dir);
     foreach ($files as $file) {
         if ($file !== '.' && $file !== '..') {
             $images[] = $file;
+            array_push($images, $file);
         }
     }
 }
@@ -24,11 +29,9 @@ if (is_dir($dir)) {
 <div class="container">
     <h1>Dashboard</h1>
 
-    <div class="nav">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="upload_photo.php">Upload Photo</a>
-        <a href="logout.php">Logout</a>
-    </div>
+    <h2>Hello, <?=ucfirst($_SESSION['username']);?></h2>
+
+    <?php include 'nav_bar.php';?>
 
     <?php if (empty($images)): ?>
         <p>No photos uploaded yet.</p>

@@ -5,6 +5,8 @@ Add 4 more username-password combinations for logging in
 Task 2
 
 Add Delete button below dashboard display of photos that deletes selected photo
+unlink()
+
 
 Task 3
 

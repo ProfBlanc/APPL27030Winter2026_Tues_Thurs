@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] === 0) {
 
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        $fileType = mime_content_type($_FILES['photo']['tmp_name']);
+        //$fileType = mime_content_type($_FILES['photo']['tmp_name']);
+        $fileType = $_FILES['photo']['type'];
 
         if (!in_array($fileType, $allowedTypes)) {
             $message = 'Only JPG, PNG, and GIF images are allowed.';
@@ -38,10 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container">
     <h1>Upload Photo</h1>
 
-    <div class="nav">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="logout.php">Logout</a>
-    </div>
+    <?php include 'nav_bar.php';?>
+
 
     <?php if ($message): ?>
         <div class="error"><?php echo htmlspecialchars($message); ?></div>

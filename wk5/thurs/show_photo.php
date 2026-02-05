@@ -25,11 +25,8 @@ if (!file_exists($path)) {
 <div class="container">
     <h1>View Photo</h1>
 
-    <div class="nav">
-        <a href="dashboard.php">Dashboard</a>
-        <a href="upload_photo.php">Upload Photo</a>
-        <a href="logout.php">Logout</a>
-    </div>
+    <?php include 'nav_bar.php';?>
+
 
     <img src="<?php echo $path; ?>"
          style="width:100%; border-radius:4px;">
