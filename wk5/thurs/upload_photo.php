@@ -1,5 +1,6 @@
 <?php
 require 'auth_check.php';
+require 'config.php';
 
 $message = '';
 
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
             $newName = uniqid() . '.' . $ext;
-            $uploadPath = 'uploads/' . $newName;
+            $uploadPath = $upload_path_user . $newName;
 
             if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadPath)) {
                 $message = 'Image uploaded successfully!';

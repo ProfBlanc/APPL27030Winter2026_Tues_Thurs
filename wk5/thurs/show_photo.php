@@ -1,19 +1,4 @@
-<?php
-require 'auth_check.php';
-
-if (!isset($_GET['img'])) {
-    header("Location: dashboard.php");
-    exit;
-}
-
-$image = basename($_GET['img']);
-$path = 'uploads/' . $image;
-
-if (!file_exists($path)) {
-    header("Location: dashboard.php");
-    exit;
-}
-?>
+<?php include 'common_photo_code.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +15,7 @@ if (!file_exists($path)) {
 
     <img src="<?php echo $path; ?>"
          style="width:100%; border-radius:4px;">
+         <a href="delete_photo.php?img=<?=$image;?>" class='del_btn'>Delete</a>
 </div>
 
 </body>

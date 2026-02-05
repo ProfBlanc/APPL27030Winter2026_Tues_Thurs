@@ -1,0 +1,44 @@
+/*
+	SQL
+    Structured
+	Query 
+    Languages
+    
+In Databases
+	a database aka catelog
+*/
+show databases;
+use world;
+show tables;
+/*city, country, countrylanguage*/
+/*describe city;*/
+/*  select = keyword to get
+	* = all columns*/
+select Name,CountryCode from city;
+/***************/
+
+/*create database web_app;*/
+show databases;
+use web_app;
+/*
+create table login(
+`id` int primary key auto_increment,
+`username` varchar(50) not null,
+`email` varchar(200) not null unique,
+`password` varchar(255) not null
+);
+*/
+select * from login;
+
+insert into login (`username`, `email`, `password`) 
+values ("admin", "admin@test.com", "pass1");
+
+/*add a login entry*/
+/*
+insert into login (`username`, `email`, `password`) values ("ben", "ben@ben.ca","pass2"),
+("john", "john@john.ca", "pass3");
+*/
+
+/*update login set `password`="password123" where id=2;*/
+
+delete from login where id = 3;

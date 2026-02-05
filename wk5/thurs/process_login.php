@@ -26,6 +26,11 @@ if(in_array($username, $validUsers)){
 if($isAuthenticated){
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $username;
+
+    $_SESSION['is_admin'] = strcmp($username, "admin") === 0 ? true : false;
+
+    
+
     header("Location: dashboard.php");
     exit;
 } else {
