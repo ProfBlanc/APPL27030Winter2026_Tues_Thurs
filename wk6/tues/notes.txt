@@ -1,0 +1,13 @@
+To enable extensions in php
+- navigate to php installation folder
+    - .ini
+        php.ini
+            php.ini-development
+                   -production
+        rename .ini-development to .ini
+        open .ini  
+            search for extension=mysqli
+                        extension=pdo_mysql
+                        extension_dir 
+
+                        uncomment all lines above

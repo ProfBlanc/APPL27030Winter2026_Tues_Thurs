@@ -1,0 +1,57 @@
+Task 1
+Navigate to login.php
+Change the action to process_login_not_secure.php
+In username, type literally the text within the double quotes
+"admin' OR '1'='1"
+What happens?
+
+Task 2
+Navigate to search_not_secure.php and type the following text in the search bar
+
+"' UNION SELECT 1, username, password FROM login-- "
+*remove the opening and closing double quotes. keep space after opening single quote. keep trailing space
+
+Task 3
+Create an edit_login.php page.
+Use either sqli or pdo to allow user to change
+-username
+-email
+-password
+
+Make sure that changes are saved to database
+
+Task 4
+Create a table named photo with columns
+    photoId that stores int as primary key and automaticall increments
+    profileId that refers to the id field in the login table
+    photo_path: that stores the path of an image
+
+Task 5
+Edit upload_photo.php to add code that inserts into the photo table values for profileId and photo_path
+
+Task 6
+Edit dashboard.php to retrieve data from photo table and display only logged in persons photo
+Bonus: if username is admin, display all photos
+
+Task 7
+Create a table named role with columns
+    roleId, roleName
+Add the following role names as table data (insert)
+    superadmin
+    admin
+    manager
+
+Task 8
+Create a table named login_role with columns
+    login_role_id
+    loginId
+    roleId
+
+Add a foreign key for loginId and login_role_id
+Assign a role to every user (insert table data)
+
+Task 9
+Edit any login_process_mysql_... page. Set the session variable isAdmin only if user has role of admin
+
+Task 10
+Edit any registration page to allow user to sign up as any role (yes, I know that this is not a wise idea in real life)
