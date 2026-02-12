@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Prevent SQL injection by using prepared statements
-    $stmt = $conn->prepare("SELECT id, username, password FROM login WHERE username = ?");
-    $stmt->bind_param("s", $username);
+    $stmt = $conn->prepare("SELECT id, username, password FROM login WHERE username = ? and password = ?");
+    $stmt->bind_param("s", $username); //s=string,i=wholenum,d=num with decimal
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($id, $db_username, $db_password);

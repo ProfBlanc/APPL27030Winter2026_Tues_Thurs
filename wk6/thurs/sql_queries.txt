@@ -1,0 +1,20 @@
+use web_app;
+select * from login;
+select id, username, `password` from login where username='admin' or '1'='1' and `password`='admin' or '1'='1';
+
+select * from login where username like '%n%';
+
+show tables;
+create table photo(
+photoId int primary key auto_increment,
+loginId int not null,
+photo_path varchar(255) not null,
+foreign key (loginId) references login(id)
+);
+
+
+insert into photo (loginId, photo_path) values(1, "toronto.jpg");
+
+select * from photo;
+
+select username, photo_path from login left join photo on login.id = photo.loginId;

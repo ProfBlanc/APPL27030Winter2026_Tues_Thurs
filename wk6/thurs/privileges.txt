@@ -1,0 +1,58 @@
+-- Create sample database
+CREATE DATABASE IF NOT EXISTS company;
+USE company;
+
+-- Create sample tables
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(100),
+    salary DECIMAL(10,2)
+);
+
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_name VARCHAR(100),
+    budget DECIMAL(12,2)
+);
+
+-- ======================================================
+-- Create Users
+-- ======================================================
+
+CREATE USER 'alice'@'localhost' IDENTIFIED BY 'AlicePass123!';
+CREATE USER 'bob'@'localhost' IDENTIFIED BY 'BobPass123!';
+CREATE USER 'carol'@'localhost' IDENTIFIED BY 'CarolPass123!';
+CREATE USER 'dave'@'localhost' IDENTIFIED BY 'DavePass123!';
+
+-- ======================================================
+-- Grant Random Privilege Sets
+-- ======================================================
+
+-- Alice: Read-only access to entire database
+GRANT SELECT ON company.* TO 'alice'@'localhost';
+
+-- Bob: Can read and insert into employees table only
+GRANT SELECT, INSERT ON company.employees TO 'bob'@'localhost';
+
+-- Carol: Full control on projects table, but nothing else
+GRANT ALL PRIVILEGES ON company.projects TO 'carol'@'localhost';
+
+-- Dave: Mixed privileges across database
+GRANT SELECT, UPDATE ON company.employees TO 'dave'@'localhost';
+GRANT SELECT ON company.projects TO 'dave'@'localhost';
+
+-- ======================================================
+-- Apply changes
+-- ======================================================
+
+FLUSH PRIVILEGES;
+
+-- ======================================================
+-- Verify Grants
+-- ======================================================
+
+SHOW GRANTS FOR 'alice'@'localhost';
+SHOW GRANTS FOR 'bob'@'localhost';
+SHOW GRANTS FOR 'carol'@'localhost';
+SHOW GRANTS FOR 'dave'@'localhost';
